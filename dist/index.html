@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Webpack teste</title>
+    <style>
+        .input-container {
+            padding: 15px;
+            background: #e9e9e9;
+            margin-bottom: 12px;
+            margin-right: 10px;
+        }
+
+        .input-text {
+            width: 100%;
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .form-btn {
+            margin-right: 10px;
+        }
+    </style>
+    <script src="FormBuilder.js"></script>
+    <script>
+        //SCRIPT DE TESTE
+        
+        function teste() {
+            alert('teste');
+        }
+
+        window.onload = () => {
+            let form = new FormBuilder("form");
+            form.createInput({
+                "label":"Nome",
+                "type":"text",
+                "className":"input-text"
+            })
+
+            form.createInput({
+                "label":"Idade",
+                "type":"number",
+                "className":"input-text"
+            })
+
+            form.createSelect({
+                "label":"Idade",
+                "className":"input-text",
+                "options":[
+                    {"text":"Selecione","value":""},
+                    {"text":"Selecione","value":"teste"},
+                ]
+            })
+
+            form.createButton({
+                "type":"submit",
+                "value":"Enviar Form",
+                "events":[
+                    {
+                        "click": function(){
+                            alert("Evento registrado ");
+                        }
+                    }
+                ]
+            })
+            
+            
+
+            form.createForm({})
+        }
+     </script>
+</head>
+
+<body>
+    <h1>Alpha 0.1 FormBuilder </h1>
+    <div id="form"></div>
+</body>
+
+</html>

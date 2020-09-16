@@ -137,5 +137,36 @@ EX: em html para atribuir uma class nos usamos **class=""** como javascript é s
 Para um maior detalhamento sobre o assunto consulte:
 https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement
 
+#### propriedades especiais
+
+Algumas propriedades não fazem parte da API do javascript para podem ser Utilizadas até o momento são elas:
+
+label - Indica o nome renderizado acima do elemento (funciona somente nos metodos **createInput() e createSelect()**)<br>
+events - Propriedade que suporte um array que irá indicar quais eventos o elemento irá registrar e seu callback o mesmo segue as especificações de nomes para eventos do Javascript.
+
+#### Eventos nos elementos do formulário
+
+Para registrar eventos nos elemetos do formulário usa-se a propriedade **events:[]** que é suportado por todos os metodos do FormBuilder seguindo as especificações do Javascript. Segue um exemplo abaixo de como registrar um evento;
+
+```javascript
+    
+    //...
+    .createButton({
+                "type":"submit",
+                "value":"Enviar Form",
+                "events":[
+                    {
+                        "click": function(){
+                            alert("Evento registrado ");
+                        }
+                    }
+                ]
+            })
+    
+    
+```
+dentro de events use o padrão json onde a propriedade corresponde ao nome do evento conforme a api do Javascript e como valor passe como referencia uma function para executa a ação desejada.
+
+
 
 

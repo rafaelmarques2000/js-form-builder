@@ -11,6 +11,7 @@ class InputContainer{
         let label = new Label(this.props).buildComponent();
         let container = new Div().buildComponent();
         let br = document.createElement("br");
+        
         container.appendChild(label);
         container.appendChild(br);
         

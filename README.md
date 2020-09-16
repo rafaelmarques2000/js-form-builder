@@ -8,6 +8,14 @@ Permitir criar formulários usando Javascript puramente, atraves de uma Api usan
 Estudar sobre padrões de projeto e ECMA6 e funcionamento de compiladores de bunddle como Webpack
 
 
+# Considerações
+- O projeto foi criado para exercitar padrões de projeto e experimentação de coisas novas.
+- Pode haver erros de codificação.
+
+# Tecnologia
+Foram usados: Javascript ECMA6 + Webpack 4.6 + Babel 
+
+
 # Como usar 
 
 Inclua no seu html uma div com um ID para que o FormBuilder possar usar como container para o formulário não se limitando apenas a um formulário multiplos formularios podem ser usados seguindo o mesmo processo.

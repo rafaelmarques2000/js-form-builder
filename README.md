@@ -40,16 +40,102 @@ e possivel gerar todos os elementos basicos de um formulário suportados pelo br
 
 Os metodos disponiveis são:
 
-**createInput(props)**  - Cria todos os tipos de inputs Text,checkBox....
-**createButton(props)** - Cria Botões(Submit e Button)
-**createSelect(props)** - Cria Campos de seleção
-**createForm(props)**   - Cria o formulário na tela **(Obs: e preciso chamar este metodo por ultimo afim de criar o fomulário em tela)**
+**createInput(props)**  - Cria todos os tipos de inputs Text,checkBox....<br>
+**createButton(props)** - Cria Botões(Submit e Button)<br>
+**createSelect(props)** - Cria Campos de seleção<br>
+**createForm(props)**   - Cria o formulário na tela **(Obs: e preciso chamar este metodo por ultimo afim de criar o fomulário em tela)**<br>
 
 # Exemplos
 
-#### Construção de formulário
+#### Construção de formulário(padrão)
 
-```html
+```javascript
+     window.onload = () => {
+            let form = new FormBuilder("form");
+            form.createInput({
+                "label":"Nome",
+                "type":"text",
+                "className":"input-text"
+            })
+
+            form.createInput({
+                "label":"Idade",
+                "type":"number",
+                "className":"input-text"
+            })
+
+            form.createSelect({
+                "label":"Idade",
+                "className":"input-text",
+                "options":[
+                    {"text":"Selecione","value":""},
+                    {"text":"Selecione","value":"teste"},
+                ]
+            })
+
+            form.createButton({
+                "type":"submit",
+                "value":"Enviar Form",
+                "events":[
+                    {
+                        "click": function(){
+                            alert("Evento registrado ");
+                        }
+                    }
+                ]
+            })
+            
+            form.createForm({})
+        }
   
 ```
+
+#### Construção de formulário(Fluent)
+
+```javascript
+     window.onload = () => {
+            let form = new FormBuilder("form");
+            form.createInput({
+                "label":"Nome",
+                "type":"text",
+                "className":"input-text"
+            })
+            .createInput({
+                "label":"Idade",
+                "type":"number",
+                "className":"input-text"
+            })
+            .createSelect({
+                "label":"Idade",
+                "className":"input-text",
+                "options":[
+                    {"text":"Selecione","value":""},
+                    {"text":"Selecione","value":"teste"},
+                ]
+            })
+            .createButton({
+                "type":"submit",
+                "value":"Enviar Form",
+                "events":[
+                    {
+                        "click": function(){
+                            alert("Evento registrado ");
+                        }
+                    }
+                ]
+            })
+            .createForm({
+                "method":"POST",
+                "action":"/"
+            })
+        }
+  
+```
+Todas as propriedades são padrões da Api Javascript seguindo o seu equivalente html <br>
+EX: em html para atribuir uma class nos usamos **class=""** como javascript é setado o atributo **className**<br>
+
+Para um maior detalhamento sobre o assunto consulte:
+https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement
+
+
 
